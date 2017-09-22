@@ -1,0 +1,15 @@
+language: go
+  
+go:
+  - 1.9.x
+  - tip
+  - master
+
+install:
+  - go get github.com/stretchr/testify/assert
+  - go get -u gopkg.in/alecthomas/gometalinter.v1
+  - gometalinter.v1 --install
+
+script:
+  - go test -v -race ./...
+  - gometalinter.v1 --cyclo-over=12 ./...
