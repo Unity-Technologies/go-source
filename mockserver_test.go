@@ -11,8 +11,8 @@ import (
 
 var (
 	commands = map[string][]*pkt{
-		fmt.Sprintf("%v:echo test me", execCommand): []*pkt{newPkt(responseValue, 0, "test me")},
-		fmt.Sprintf("%v:", responseValue): []*pkt{
+		fmt.Sprintf("%v:echo test me", execCommand): {newPkt(responseValue, 0, "test me")},
+		fmt.Sprintf("%v:", responseValue): {
 			newPkt(responseValue, 1, ""),
 			newPkt(responseValue, 1, string(responseBody)),
 		},
